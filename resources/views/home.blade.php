@@ -1,23 +1,30 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <title>{{ config('app.name', 'Inventary') }}</title>
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+        {{-- Scripts --}}
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        {{-- Fonts & Icons --}}
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+        {{-- Styles --}}
+        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    </head>
+
+    <body>
+        <div id="root">
+            <app>
+                {{-- App.vue --}}
+            </app>
         </div>
-    </div>
-</div>
-@endsection
+    </body>
+</html>
